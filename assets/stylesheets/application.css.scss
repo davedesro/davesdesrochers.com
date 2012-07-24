@@ -1,0 +1,141 @@
+$dark-grey: #52524F;
+$light-grey: #ccc;
+
+@mixin shadow
+{
+  -moz-box-shadow: 0.25em 0.58em 0.58em #444;
+  -webkit-box-shadow: 0.25em 0.58em 0.58em #444;
+  box-shadow: 0.25em 0.58em 0.58em #444;
+}
+
+@mixin gradient
+{
+  background: -webkit-linear-gradient(bottom, $light-grey 10%, $dark-grey 80%);
+  background: -moz-linear-gradient(bottom, $light-grey 10%, $dark-grey 80%);
+  background: -o-linear-gradient(bottom, $light-grey 10%, $dark-grey 80%);
+  background: -ms-linear-gradient(bottom, $light-grey 10%, $dark-grey 80%);
+  background: linear-gradient(bottom, $light-grey 10%, $dark-grey 80%);
+}
+
+@mixin fade-visible
+{
+  -webkit-transition-property:opacity, visibility;
+  -webkit-transition-duration:0.5s, 0.5s;
+  -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+
+  -moz-transition-property:opacity, visibility;
+  -moz-transition-duration:0.5s, 0.5s;
+  -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+
+  -o-transition-property:opacity, visibility;
+  -o-transition-duration:0.5s, 0.5s;
+  -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out;
+
+  transition-property:opacity, visibility;
+  transition-duration:0.5s, 0.5s;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+}
+
+h1
+{
+  text-shadow: 0px 1px black;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+
+html
+{
+  @media screen and (min-width: 1920px) {
+    background: url(/images/bg-3072.jpg) no-repeat center center fixed;
+  }
+  @media screen and (max-width: 1920px) and (min-width: 1024px) {
+    background: url(/images/bg-1920.jpg) no-repeat center center fixed;
+  }
+  @media screen and (max-width: 1024px) and (min-width: 320px) {
+    background: url(/images/bg-1024.jpg) no-repeat center center fixed;
+  }
+  @media screen and (max-width: 320px) {
+    background: url(/images/bg-320.jpg) no-repeat center center fixed;
+  }
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-size: 1em;
+  width: 100%;
+  height: 100%;
+}
+
+#floater
+{
+  @include shadow;
+  @include gradient;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  background-color: $dark-grey;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
+  color: white;
+  padding: 2em;
+  a { text-decoration: none; }
+}
+
+.icon
+{
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  margin: 0 0.5em;
+}
+
+#page_footer
+{
+  position: absolute;
+  bottom: 1.2em;
+  right: 1.2em;
+
+  a {
+    @include fade-visible;
+    color: white;
+    background-color: $dark-grey;
+    border-radius: 0.25em;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 1em;
+    opacity: 0.25;
+  }
+
+  a:hover {
+    @include fade-visible;
+    opacity: 1.0;
+  }
+}
+
+#facebook
+{
+  background: url('facebook-icon.png') no-repeat center center;
+}
+
+#linkedin
+{
+  background: url('linkedin-icon.png') no-repeat center center;
+}
+
+#twitter
+{
+  background: url('twitter-icon.png') no-repeat center center;
+}
+
+#email
+{
+  background: url('email-icon.png') no-repeat center center;
+}
