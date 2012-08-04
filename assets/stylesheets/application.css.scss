@@ -1,5 +1,6 @@
-$dark-grey: #52524F;
-$light-grey: #ccc;
+$DEBUG: false;
+$dark-peach: #986f53;
+$light-peach: #eed9bc;
 
 @mixin shadow
 {
@@ -10,11 +11,11 @@ $light-grey: #ccc;
 
 @mixin gradient
 {
-  background: -webkit-linear-gradient(bottom, $light-grey 10%, $dark-grey 80%);
-  background: -moz-linear-gradient(bottom, $light-grey 10%, $dark-grey 80%);
-  background: -o-linear-gradient(bottom, $light-grey 10%, $dark-grey 80%);
-  background: -ms-linear-gradient(bottom, $light-grey 10%, $dark-grey 80%);
-  background: linear-gradient(bottom, $light-grey 10%, $dark-grey 80%);
+  background: -webkit-linear-gradient(bottom, $light-peach 10%, $dark-peach 80%);
+  background: -moz-linear-gradient(bottom, $light-peach 10%, $dark-peach 80%);
+  background: -o-linear-gradient(bottom, $light-peach 10%, $dark-peach 80%);
+  background: -ms-linear-gradient(bottom, $light-peach 10%, $dark-peach 80%);
+  background: linear-gradient(bottom, $light-peach 10%, $dark-peach 80%);
 }
 
 @mixin fade-visible
@@ -36,6 +37,18 @@ $light-grey: #ccc;
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
+@mixin debug($message)
+{
+  &::before {
+    content: $message;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: #55d;
+    color: white;
+  }
+}
+
 h1
 {
   text-shadow: 0px 1px black;
@@ -43,21 +56,8 @@ h1
   margin-bottom: 2em;
 }
 
-
 html
 {
-  @media screen and (min-width: 1920px) {
-    background: url(/images/bg-3072.jpg) no-repeat center center fixed;
-  }
-  @media screen and (max-width: 1920px) and (min-width: 1024px) {
-    background: url(/images/bg-1920.jpg) no-repeat center center fixed;
-  }
-  @media screen and (max-width: 1024px) and (min-width: 320px) {
-    background: url(/images/bg-1024.jpg) no-repeat center center fixed;
-  }
-  @media screen and (max-width: 320px) {
-    background: url(/images/bg-320.jpg) no-repeat center center fixed;
-  }
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -71,6 +71,8 @@ body {
   font-size: 1em;
   width: 100%;
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 #floater
@@ -80,7 +82,6 @@ body {
   position: absolute;
   top: 10%;
   left: 35%;
-  background-color: $dark-grey;
   -webkit-border-radius: 1em;
   -moz-border-radius: 1em;
   border-radius: 1em;
@@ -106,7 +107,7 @@ body {
   a {
     @include fade-visible;
     color: white;
-    background-color: $dark-grey;
+    background-color: $dark-peach;
     border-radius: 0.25em;
     text-decoration: none;
     cursor: pointer;
@@ -139,3 +140,41 @@ body {
 {
   background: url('email-icon.png') no-repeat center center;
 }
+
+@media screen and (min-width: 1920px) {
+  html { background: url(/images/bg-3072.jpg) no-repeat center center fixed; }
+  @if($DEBUG == true) { body { @include debug('3072'); } }
+}
+@media screen and (max-width: 1920px) and (min-width: 1024px) {
+  html { background: url(/images/bg-1920.jpg) no-repeat center center fixed; }
+  @if($DEBUG == true) { body { @include debug('1920'); } }
+}
+@media screen and (max-width: 1024px) and (min-width: 480px) {
+  html { background: url(/images/bg-1024.jpg) no-repeat center center fixed; }
+  @if($DEBUG == true) { body { @include debug('1024'); } }
+}
+@media screen and (max-width: 480px) and (min-width: 320px) {
+  html { background: url(/images/bg-480.jpg) no-repeat center center fixed; }
+  h1 { margin-bottom: 0.5em; margin-top: 0; }
+  #floater {
+    padding: 0.8em 1em;
+    left: 8%;
+    top: 6%;
+  }
+  #me { font-size: 2em; }
+  .icon { margin: 0 1em }
+  @if($DEBUG == true) { body { @include debug('480'); } }
+}
+@media screen and (max-width: 320px) {
+  html { background: url(/images/bg-320.jpg) no-repeat center center fixed; }
+  h1 { margin-bottom: 0.5em; margin-top: 0; }
+  #floater {
+    padding: 0.8em 1em;
+    left: 3%;
+    top: 52%;
+  }
+  #me { font-size: 2em; }
+  .icon { margin: 0 1em }
+  @if($DEBUG == true) { body { @include debug('320'); } }
+}
+
