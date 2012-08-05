@@ -1,6 +1,7 @@
 $DEBUG: false;
 $dark-peach: #986f53;
 $light-peach: #eed9bc;
+$med-peach: #bd9a7a;
 
 @mixin shadow
 {
@@ -78,6 +79,7 @@ body {
 #floater
 {
   @include shadow;
+  background: $med-peach;
   @include gradient;
   position: absolute;
   top: 10%;
@@ -179,7 +181,7 @@ li
   @if($DEBUG == true) { body { @include debug('480'); } }
   html { background: url(/images/bg-480.jpg) no-repeat center center fixed; }
   #floater {
-    left: 8%;
+    left: 18%;
     top: 6%;
   }
 }

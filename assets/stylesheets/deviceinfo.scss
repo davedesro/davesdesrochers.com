@@ -1,0 +1,46 @@
+body
+{
+  background-color: #004;
+  color: white;
+}
+
+.name, .value
+{
+  min-width: 5.5em;
+  text-align: right;
+  display: inline-block;
+}
+
+.name { font-weight: bold; }
+
+li
+{
+  list-style: none;
+}
+
+a:visited
+{
+  color: white;
+}
+
+@media screen and (max-width: 900px) {
+  .name, .value
+  {
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .name, .value
+  {
+    font-size: 3em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .name, .value
+  {
+    font-size: 1.5em;
+  }
+  h1 { font-size: 1.5em; }
+}
