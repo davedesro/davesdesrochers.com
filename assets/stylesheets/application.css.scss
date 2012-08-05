@@ -94,8 +94,6 @@ body {
 {
   width: 32px;
   height: 32px;
-  display: inline-block;
-  margin: 0 0.5em;
 }
 
 #page_footer
@@ -121,6 +119,19 @@ body {
   }
 }
 
+ul
+{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li
+{
+  display: inline-block;
+  margin: 0 0.5em;
+}
+
 #facebook
 {
   background: url('facebook-icon.png') no-repeat center center;
@@ -142,39 +153,43 @@ body {
 }
 
 @media screen and (min-width: 1920px) {
-  html { background: url(/images/bg-3072.jpg) no-repeat center center fixed; }
   @if($DEBUG == true) { body { @include debug('3072'); } }
+  html { background: url(/images/bg-3072.jpg) no-repeat center center fixed; }
 }
+
 @media screen and (max-width: 1920px) and (min-width: 1024px) {
-  html { background: url(/images/bg-1920.jpg) no-repeat center center fixed; }
   @if($DEBUG == true) { body { @include debug('1920'); } }
+  html { background: url(/images/bg-1920.jpg) no-repeat center center fixed; }
 }
+
 @media screen and (max-width: 1024px) and (min-width: 480px) {
-  html { background: url(/images/bg-1024.jpg) no-repeat center center fixed; }
   @if($DEBUG == true) { body { @include debug('1024'); } }
+  html { background: url(/images/bg-1024.jpg) no-repeat center center fixed; }
 }
-@media screen and (max-width: 480px) and (min-width: 320px) {
-  html { background: url(/images/bg-480.jpg) no-repeat center center fixed; }
+
+// Intended for mobile screens
+@media screen and (max-width: 480px) {
   h1 { margin-bottom: 0.5em; margin-top: 0; }
+  #floater { padding: 0.8em 1em; }
+  #me { font-size: 2em; }
+  li { margin: 0 1em }
+}
+
+@media screen and (max-width: 480px) and (min-width: 320px) {
+  @if($DEBUG == true) { body { @include debug('480'); } }
+  html { background: url(/images/bg-480.jpg) no-repeat center center fixed; }
   #floater {
-    padding: 0.8em 1em;
     left: 8%;
     top: 6%;
   }
-  #me { font-size: 2em; }
-  .icon { margin: 0 1em }
-  @if($DEBUG == true) { body { @include debug('480'); } }
 }
+
 @media screen and (max-width: 320px) {
+  @if($DEBUG == true) { body { @include debug('320'); } }
   html { background: url(/images/bg-320.jpg) no-repeat center center fixed; }
-  h1 { margin-bottom: 0.5em; margin-top: 0; }
   #floater {
-    padding: 0.8em 1em;
     left: 3%;
     top: 52%;
   }
-  #me { font-size: 2em; }
-  .icon { margin: 0 1em }
-  @if($DEBUG == true) { body { @include debug('320'); } }
 }
 
