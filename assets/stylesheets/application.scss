@@ -181,7 +181,7 @@ li
   @if($DEBUG == true) { body { @include debug('480'); } }
   html { background: url(/images/bg-480.jpg) no-repeat center center fixed; }
   #floater {
-    left: 18%;
+    left: 17%;
     top: 6%;
   }
 }
