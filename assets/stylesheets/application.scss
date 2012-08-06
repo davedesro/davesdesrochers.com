@@ -38,6 +38,13 @@ $med-peach: #bd9a7a;
   transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
 }
 
+@mixin border_radius($size)
+{
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
+}
+
 @mixin debug($message)
 {
   &::before {
@@ -84,9 +91,7 @@ body {
   position: absolute;
   top: 10%;
   left: 35%;
-  -webkit-border-radius: 1em;
-  -moz-border-radius: 1em;
-  border-radius: 1em;
+  @include border_radius(1em);
   color: white;
   padding: 2em;
   a { text-decoration: none; }
@@ -107,8 +112,8 @@ body {
   a {
     @include fade-visible;
     color: white;
-    background-color: $dark-peach;
-    border-radius: 0.25em;
+    background-color: $med-peach;
+    @include border_radius(0.25em);
     text-decoration: none;
     cursor: pointer;
     padding: 0 1em;
