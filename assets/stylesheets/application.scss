@@ -3,6 +3,9 @@ $dark-peach: #986f53;
 $light-peach: #eed9bc;
 $med-peach: #bd9a7a;
 
+@import "background/*.png";
+@include all-background-sprites;
+
 @mixin shadow
 {
   -moz-box-shadow: 0.25em 0.58em 0.58em #444;
@@ -94,7 +97,9 @@ body {
 
   a { text-decoration: none; }
 }
+
 #me { font-size: 2em; }
+
 .icon
 {
   width: 32px;
@@ -135,26 +140,6 @@ li
 {
   display: inline-block;
   margin: 0 0.5em;
-}
-
-#facebook
-{
-  background: url('facebook-icon.png') no-repeat center center;
-}
-
-#linkedin
-{
-  background: url('linkedin-icon.png') no-repeat center center;
-}
-
-#twitter
-{
-  background: url('twitter-icon.png') no-repeat center center;
-}
-
-#email
-{
-  background: url('email-icon.png') no-repeat center center;
 }
 
 @media screen and (min-width: 1920px) {
